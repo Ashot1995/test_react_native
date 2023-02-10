@@ -1,9 +1,20 @@
 import React from "react";
-import { Home, Login, Splash } from "../screens";
-import { createNativeStackNavigator } from "react-native-screens/native-stack";
-import { SplashPageName, LoginPageName, HomePageName } from "../constants/navigationName";
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createNativeStackNavigator();
+import {
+  SplashPageName,
+  LoginPageName,
+  HomePageName,
+  AddTaskName
+} from "@constants/navigationName";
+import {
+  Home,
+  Login,
+  Splash,
+  AddTask
+} from "@screens";
+
+const Stack = createStackNavigator();
 
 export function MainStack() {
 
@@ -15,6 +26,7 @@ export function MainStack() {
       <Stack.Screen name={SplashPageName} component={Splash} />
       <Stack.Screen name={LoginPageName} component={Login} />
       <Stack.Screen name={HomePageName} component={Home} />
+      <Stack.Screen name={AddTaskName} component={AddTask} />
     </Stack.Navigator>
   );
 }

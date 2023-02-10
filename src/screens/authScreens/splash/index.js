@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
-import { CheckToken } from "../../utils/checkToken";
-import { HomePageName, LoginPageName } from "../../constants/navigationName";
+import { CheckToken } from "@utils/checkToken";
+import { HomePageName, LoginPageName } from "@constants/navigationName";
 
 export function Splash({ navigation }) {
 
   useEffect(() => {
-    handle();
+    let time = setTimeout(async () => {
+    await  handle();
+    }, 1000)
+    return () => clearTimeout(time)
   }, []);
 
   const handle = async () => {
@@ -21,7 +24,7 @@ export function Splash({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>Splash</Text>
+      <Text style={styles.splashText}>Splash</Text>
     </View>
   );
 }
